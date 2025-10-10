@@ -27,6 +27,9 @@ namespace ITI_Project.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Register AutoMapper
+            builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
             // Configure CORS to allow all origins
             builder.Services.AddCors(options =>
             {

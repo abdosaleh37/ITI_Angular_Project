@@ -47,47 +47,4 @@ namespace ITI_Project.DAL.Entities
         public string Barcode { get; set; } = null!;
         public string QrCode { get; set; } = null!;
     }
-
-    // Entities for normalized collections
-    public class ProductImage
-    {
-        public int Id { get; set; }
-        public int ProductId { get; set; }
-        public string Url { get; set; } = null!;
-        public bool IsPrimary { get; set; }
-        public int SortOrder { get; set; }
-
-        public Product Product { get; set; } = null!;
-    }
-
-    public class ProductReview
-    {
-        public int Id { get; set; }
-        public int ProductId { get; set; }
-
-        public int Rating { get; set; }
-        public string Comment { get; set; } = null!;
-        public DateTime Date { get; set; }
-        public string ReviewerName { get; set; } = null!;
-        public string ReviewerEmail { get; set; } = null!;
-
-        public Product Product { get; set; } = null!;
-    }
-
-    public class Tag
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = null!;
-
-        public ICollection<ProductTag> ProductTags { get; set; } = new List<ProductTag>();
-    }
-
-    public class ProductTag
-    {
-        public int ProductId { get; set; }
-        public int TagId { get; set; }
-
-        public Product Product { get; set; } = null!;
-        public Tag Tag { get; set; } = null!;
-    }
 }
