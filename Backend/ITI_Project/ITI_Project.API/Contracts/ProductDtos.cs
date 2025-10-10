@@ -32,32 +32,6 @@ namespace ITI_Project.API.Contracts
         public string? Thumbnail { get; set; }
     }
 
-    public class ProductUpsertDto
-    {
-        public int? Id { get; set; } // Null or 0 for create, positive value for update
-        public string Title { get; set; } = null!;
-        public string Description { get; set; } = null!;
-        public string Category { get; set; } = null!;
-        public decimal Price { get; set; }
-        public double DiscountPercentage { get; set; }
-        public double Rating { get; set; }
-        public int Stock { get; set; }
-        public List<string>? Tags { get; set; }
-        public string? Brand { get; set; }
-        public string Sku { get; set; } = null!;
-        public double Weight { get; set; }
-        public ProductDimensionsDto? Dimensions { get; set; }
-        public string? WarrantyInformation { get; set; }
-        public string? ShippingInformation { get; set; }
-        public string? AvailabilityStatus { get; set; }
-        public List<ProductReviewDto>? Reviews { get; set; }
-        public string? ReturnPolicy { get; set; }
-        public int MinimumOrderQuantity { get; set; }
-        public ProductMetaDto? Meta { get; set; }
-        public List<string>? Images { get; set; }
-        public string? Thumbnail { get; set; }
-    }
-
     public class ProductDimensionsDto
     {
         public double Width { get; set; }

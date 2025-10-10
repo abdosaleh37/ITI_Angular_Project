@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using ITI_Project.API.Mappers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITI_Project.API.Controllers
 {
@@ -22,6 +23,7 @@ namespace ITI_Project.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll(CancellationToken ct)
         {
             var products = await _unitOfWork.Products.GetAllAsync(ct);
