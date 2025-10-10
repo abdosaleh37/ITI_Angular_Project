@@ -1,0 +1,148 @@
+<div class="product-detail-container">
+  @if(product){
+    <div class="product-detail">
+
+      <div class="product-images">
+        <img [src]="image" [alt]="product.title" class="main-image" onerror="this.src='/fallback.jpg'">
+        <div class="secondary-images-container">
+          @for(img of product.images; track $index){
+            <img
+              [src]="img.url"
+              [alt]="product.title"
+              class="secondary-image"
+              [class.active]="image === img.url"
+              (click)="changeImage($index)"
+              onerror="this.src='/fallback.jpg'">
+          }
+        </div>
+      </div>
+
+      <div class="product-info">
+        <div class="product-header">
+          <h1>{{product.title}}</h1>
+        </div>
+
+        <div class="product-brand">
+          <strong>Brand:</strong> {{product.brand}}
+        </div>
+
+        <div class="product-pricing">
+          <div class="price-section">
+            <span class="current-price">${{product.price}}</span>
+            @if(product.discountPercentage > 0){
+              <span class="discount-badge">-{{product.discountPercentage}}% OFF</span>
+            }
+          </div>
+          <div class="rating">
+            <div class="rating-stars">
+              @for(star of getStars(product.rating); track $index){
+                @if(star.type === 'full'){
+                  <span class="star full">★</span>
+                }
+                @else if(star.type === 'quart'){
+                  <span class="star quart">★</span>
+                }
+                @else if(star.type === 'half'){
+                  <span class="star half">★</span>
+                }
+                @else if(star.type === 'threeQuart'){
+                  <span class="star threeQuart">★</span>
+                }
+                @else{
+                  <span class="star empty">☆</span>
+                }
+              }
+            </div>
+            <span class="rating-text">({{product.rating}}/5)</span>
+          </div>
+        </div>
+
+        <div class="product-stock">
+          @if(product.stock > 0){
+            <span class="in-stock">In Stock ({{product.stock}} available)</span>
+          }
+          @else{
+            <span class="out-of-stock">Out of Stock</span>
+          }
+          <span class="availability">{{product.availabilityStatus}}</span>
+        </div>
+
+        <div class="product-description">
+          <h3>Description</h3>
+          <p>{{product.description}}</p>
+        </div>
+
+        <div class="product-details-grid">
+          <div class="detail-item">
+            <strong>Category:</strong>
+            <span>{{product.category}}</span>
+          </div>
+          <div class="detail-item">
+            <strong>SKU:</strong>
+            <span>{{product.sku}}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Weight:</strong>
+            <span>{{product.weight}} kg</span>
+          </div>
+          <div class="detail-item">
+            <strong>Tags:</strong>
+            <span>{{tags}}</span>
+          </div>
+        </div>
+
+        <div class="product-policies">
+          <div class="policy-item">
+            <strong>Warranty:</strong>
+            <span>{{product.warrantyInformation}}</span>
+          </div>
+          <div class="policy-item">
+            <strong>Shipping:</strong>
+            <span>{{product.shippingInformation}}</span>
+          </div>
+          <div class="policy-item">
+            <strong>Returns:</strong>
+            <span>{{product.returnPolicy}}</span>
+          </div>
+          <div class="policy-item">
+            <strong>Min Order:</strong>
+            <span>{{product.minimumOrderQuantity}} units</span>
+          </div>
+        </div>
+
+        <div class="product-actions">
+          @if(product.stock > 0){
+            <button class="btn-add-to-cart">Add to Cart</button>
+          }
+          @else{
+            <button class="btn-add-to-cart disabled" disabled>Out of Stock</button>
+          }
+          <button class="btn-back" onclick="history.back()">← Back to Products</button>
+        </div>
+
+        @if(product.reviews && product.reviews.length > 0){
+          <div class="product-reviews">
+            <h3>Customer Reviews ({{product.reviews.length}})</h3>
+            <div class="reviews-list">
+              @for(review of product.reviews; track review.reviewerEmail){
+                <div class="review-item">
+                  <div class="review-header">
+                    <strong>{{review.reviewerName}}</strong>
+                    <span class="review-rating">⭐ {{review.rating}}/5</span>
+                  </div>
+                  <p class="review-comment">{{review.comment}}</p>
+                  <span class="review-date">{{review.date | date:'short'}}</span>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+  @else{
+    <div class="loading">
+      <p>Loading product details...</p>
+    </div>
+  }
+</div>

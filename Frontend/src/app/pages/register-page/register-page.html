@@ -1,0 +1,90 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+  <div class="input-field">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Enter your name"
+      formControlName="name">
+
+    @if(registerForm.get('name')?.invalid && registerForm.get('name')?.touched){
+      <div class="error-message">
+        @if(registerForm.get('name')?.errors?.['required']){
+          <span>Name is required </span>
+        } 
+      </div>
+    }
+  </div>
+
+  <div class="input-field">
+    <label for="email">Email Address</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email"
+      formControlName="email">
+
+    @if(registerForm.get('email')?.invalid && registerForm.get('email')?.touched){
+      <div class="error-message">
+        @if(registerForm.get('email')?.errors?.['required']){
+          <span>Email is required </span>
+        }
+        @if(registerForm.get('email')?.errors?.['email']){
+          <span>Please enter a valid email </span>
+        } 
+      </div>
+    }
+  </div>
+
+  <div class="input-field">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" placeholder="Enter your username"
+      formControlName="username">
+
+    @if(registerForm.get('username')?.invalid && registerForm.get('username')?.touched){
+      <div class="error-message">
+        @if(registerForm.get('username')?.errors?.['required']){
+          <span>Username is required </span>
+        }
+        @if(registerForm.get('username')?.errors?.['pattern']){
+          <span>User name can't contain spaces </span>
+        } 
+      </div>
+    }
+  </div>
+
+
+  <div class="input-field">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Enter your password"
+      formControlName="password">
+
+    @if(registerForm.get('password')?.invalid && registerForm.get('password')?.touched){
+      <div class="error-message">
+        @if(registerForm.get('password')?.errors?.['required']){
+          <span>Password is required </span>
+        }
+        @if(registerForm.get('password')?.errors?.['pattern']){
+          <span>Password must be at least 8 characters including uppercase, lowercase, number and special character </span>
+        } 
+      </div>
+    }
+  </div>
+
+  <div class="input-field">
+    <label for="cpassword">Confirm password</label>
+    <input type="password" name="cpassword" id="cpassword" placeholder="Confirm your password"
+      formControlName="confirmPassword">
+
+    @if(registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched){
+      <div class="error-message">
+        <span>Password does not match</span>
+      </div>
+    }
+  </div>
+
+  <div class="input-field">
+    <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+  </div>
+
+</form>
+
+<div class="no-account">
+  <span>Already have account! </span>
+  <a routerLink="/login">Login</a>
+</div>

@@ -1,0 +1,29 @@
+.not-found{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  height: 40vh;
+  margin: 20vh auto;
+  background-color: #ddd;
+  color: rgb(168, 1, 1);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .not-found {
+    width: 70%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found {
+    width: 90%;
+    padding: 1rem;
+    height: auto;
+    min-height: 30vh;
+  }
+}

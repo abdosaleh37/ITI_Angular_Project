@@ -1,0 +1,46 @@
+<div>
+  <img [src]="product.thumbnail" class="card-img-top" alt="..." onerror="this.src='/fallback.jpg'">
+  @if(product.stock){
+    <p class="stock in-stock">In Stock</p>
+  }
+  @else{
+    <p class="stock out-of-stock">Out Of Stock</p>
+  }
+</div>
+<div class="card-body">
+  <div class="title">
+    <h5 class="card-title">{{ product.title }}</h5>
+    <h5 class="card-title">{{ product.price }}$</h5>
+  </div>
+  <p class="card-text">{{ product.description }}</p>
+  <div>
+    <div class="rating-stars">
+      @for(star of getStars(product.rating); track $index){
+        @if(star.type === 'full'){
+          <span class="star full">★</span>
+        }
+        @else if(star.type === 'quart'){
+          <span class="star quart">★</span>
+        }
+        @else if(star.type === 'half'){
+          <span class="star half">★</span>
+        }
+        @else if(star.type === 'threeQuart'){
+          <span class="star threeQuart">★</span>
+        }
+        @else{
+          <span class="star empty">☆</span>
+        }
+      }
+      <span class="rating-number">({{ product.rating }}/5)</span>
+    </div>
+    @if(product.stock){
+      <button class="add-to-cart cart-in-stock">Add to cart</button>
+    }
+    @else{
+      <button class="add-to-cart cart-out-stock" disabled>Out of Stock</button>
+    }
+  </div>
+
+
+</div>

@@ -1,0 +1,10 @@
+<div class="home-page">
+  <p style="font-weight: bold;">Welcome to our shopping website, start browsing...</p>
+  <div id="products">
+    @for(product of products; track product.id){
+        <div class="card">
+          <a [routerLink]="['/details', product.id]"><app-card [product]="product"></app-card></a>
+        </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,179 @@
+
+img{
+background-color: rgb(236, 236, 236);
+height: 280px;
+width: 280px;
+}
+
+.stock{
+position: absolute;
+top: 1rem;
+left: 1rem;
+color: white;
+width: 7rem;
+height: 2rem;
+padding: 0.2rem;
+text-align: center;
+border-radius: 15px;
+}
+
+.out-of-stock{
+background-color: red;
+}
+
+.in-stock{
+background-color: green;
+}
+
+.title{
+display: flex;
+justify-content: space-between;
+}
+
+.add-to-cart {
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  width: 8rem;
+  text-align: center;
+  padding: 0.7rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-in-stock {
+  color: white;
+  background-color: #28a745;
+}
+
+.cart-in-stock:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.cart-out-stock {
+  color: #999;
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.cart-out-stock:hover {
+  background-color: #e0e0e0;
+  transform: none;
+}
+
+.card-body{
+height: 350px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.star {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.star.full {
+  color: #ff8c00;
+}
+
+.star.quart {
+  background: linear-gradient(90deg, #ff8c00 30%, #ddd 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.star.half {
+  background: linear-gradient(90deg, #ff8c00 50%, #ddd 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.star.threeQuart {
+  background: linear-gradient(90deg, #ff8c00 60%, #ddd 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.star.empty {
+  color: #ddd;
+}
+
+.rating-number {
+  margin-left: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  img {
+    height: 240px;
+    width: 240px;
+  }
+
+  .card-body {
+    height: 300px;
+  }
+
+  .add-to-cart {
+    width: 7rem;
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .stock {
+    width: 6rem;
+    height: 1.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  img {
+    height: 200px;
+    width: 200px;
+  }
+
+  .card-body {
+    height: 280px;
+  }
+
+  .add-to-cart {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .stock {
+    width: 5.5rem;
+    height: 1.6rem;
+    font-size: 0.8rem;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+
+  .title {
+    font-size: 0.9rem;
+  }
+
+  .rating-stars {
+    gap: 0.1rem;
+  }
+
+  .star {
+    font-size: 1rem;
+  }
+}

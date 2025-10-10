@@ -1,0 +1,68 @@
+# Repository-level .gitignore for ITI_Angular_Project
+
+# ----- Visual Studio / .NET -----
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Build folders
+bin/
+obj/
+**/bin/
+**/obj/
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+
+# ASP.NET Core / app settings
+# Do not commit development settings that may contain secrets
+**/appsettings.Development.json
+**/secrets.json
+**/appsettings.*.Local.json
+
+# Publish output
+publish/
+**/publish/
+
+# Entity Framework
+*.db
+*.sqlite
+
+# ----- Node / Angular -----
+node_modules/
+dist/
+dist-*/
+build/
+wwwroot/
+
+# Angular CLI cache and output
+.angular/
+.angular-cache/
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Package managers
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Other
+*.vsix
+*.cache
+
+# If you have local files you intentionally want tracked, add exceptions here.

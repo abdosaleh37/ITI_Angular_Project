@@ -1,0 +1,5 @@
+# Consolidated gitignore
+# This per-project .gitignore was consolidated into the repository-level
+# `.gitignore` at the workspace root. Keep this file only as a marker.
+
+# See: ../.gitignore
