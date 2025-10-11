@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from "@angular/router";
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from "@angular/forms";
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../../sevices/auth-service';
 
 @Component({
   selector: 'app-register-page',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './register-page.html',
   styleUrl: './register-page.css'
 })
 export class RegisterPage {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
   registerForm = new FormGroup({
   name: new FormControl('', [Validators.required]),
@@ -31,9 +33,22 @@ export class RegisterPage {
     return null;
   }
 
-  onSubmit(){
+  errorMessage: string | null = null;
+  loading = false;
+
+  async onSubmit(){
     if(this.registerForm.valid) {
-      this.router.navigate(['/home']);
+      this.loading = true;
+      this.errorMessage = '';
+      try {
+        const value = this.registerForm.value as any;
+        await this.auth.register(value.name, value.email, value.username, value.password, value.confirmPassword);
+        this.router.navigate(['/login']);
+      } catch (err: any) {
+        this.errorMessage = 'Registration failed';
+      } finally {
+        this.loading = false;
+      }
     }
   }
 }

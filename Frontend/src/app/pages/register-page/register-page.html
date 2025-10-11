@@ -79,7 +79,12 @@
   </div>
 
   <div class="input-field">
-    <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+    <button type="submit" [disabled]="registerForm.invalid || loading">{{ loading ? 'Signing up...' : 'Sign Up' }}</button>
+    <div class="error-message">
+      @if(errorMessage){
+        <span>{{ errorMessage }}</span>
+      }
+    </div>
   </div>
 
 </form>

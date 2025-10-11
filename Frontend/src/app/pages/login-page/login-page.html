@@ -35,7 +35,12 @@
     </div>
 
     <div class="input-field">
-      <button type="submit" [disabled]="loginForm.invalid">Log In</button>
+      <button type="submit" [disabled]="loginForm.invalid || loading">{{ loading ? 'Logging in...' : 'Log In' }}</button>
+      <div class="error-message">
+        @if(errorMessage){
+          <span>{{ errorMessage }}</span>
+        }
+      </div>
     </div>
 
   </form>
