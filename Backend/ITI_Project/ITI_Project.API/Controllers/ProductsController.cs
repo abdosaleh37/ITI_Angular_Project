@@ -1,10 +1,9 @@
 using ITI_Project.BLL.Interfaces;
+using ITI_Project.BLL.DTOs;
 using ITI_Project.DAL.Entities;
-using ITI_Project.API.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
-using ITI_Project.API.Mappers;
 using Microsoft.AspNetCore.Authorization;
 
 namespace ITI_Project.API.Controllers

@@ -1,4 +1,5 @@
 using ITI_Project.BLL;
+using ITI_Project.BLL.Services;
 using ITI_Project.BLL.Interfaces;
 using ITI_Project.DAL.Data;
 using ITI_Project.DAL.Entities;
@@ -73,6 +74,7 @@ namespace ITI_Project.API
 
             // Register Unit of Work from BLL
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
 
             var app = builder.Build();
 
