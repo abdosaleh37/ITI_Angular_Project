@@ -72,7 +72,7 @@ namespace ITI_Project.API
                     };
             });
 
-            // Register Unit of Work from BLL
+            // Register Unit of Work and Services from BLL
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IAuthService, AuthService>();
 

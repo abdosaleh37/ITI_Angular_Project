@@ -58,8 +58,8 @@ namespace ITI_Project.BLL.Common
 
         public static Result<T> Success(T value) => new Result<T>(value, true, (string?)null);
 
-        public static new Result<T> Failure(string error) => new Result<T>(default, false, error);
+        public static new Result<T> Failure(string error) => new Result<T>(default!, false, error);
 
-        public static new Result<T> Failure(List<string> errors) => new Result<T>(default, false, errors);
+        public static new Result<T> Failure(List<string> errors) => new Result<T>(default!, false, errors);
     }
 }

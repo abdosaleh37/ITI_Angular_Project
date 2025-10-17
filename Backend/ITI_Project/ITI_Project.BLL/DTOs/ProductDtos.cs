@@ -138,4 +138,18 @@ namespace ITI_Project.BLL.DTOs
         public bool IsPrimary { get; set; }
         public int SortOrder { get; set; }
     }
+
+    public class BulkProductResultDto
+    {
+        public int Count { get; set; }
+        public string Message { get; set; } = string.Empty;
+        public List<ProductSummaryDto> Products { get; set; } = new();
+    }
+
+    public class ProductSummaryDto
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Sku { get; set; } = string.Empty;
+    }
 }

@@ -56,7 +56,6 @@ namespace ITI_Project.BLL.Services
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration["Jwt:Key"] ?? string.Empty));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             
-            // FIX: Read audiences using GetChildren() instead of Get<string[]>()
             var audiences = _configuration.GetSection("Jwt:Audiences")
                 .GetChildren()
                 .Select(x => x.Value)
@@ -83,7 +82,7 @@ namespace ITI_Project.BLL.Services
                 User = new UserDto
                 {
                     Id = user.Id,
-                    UserName = user.UserName,
+                    UserName = user.UserName!,
                     Email = user.Email ?? string.Empty,
                     FullName = user.FullName ?? string.Empty,
                     Roles = roles.ToList()
