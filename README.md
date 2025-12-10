@@ -39,5 +39,3 @@ Notes
 
 - When running the frontend and backend locally, ensure the API base URL in the frontend configuration (`src/app/app.config.ts` or environment files) points to the running backend (e.g. `https://localhost:5001` / `http://localhost:5000`).
 - The backend solution uses EF Core and has Identity-related entities. Review `Backend/ITI_Project/ITI_Project.DAL/Data/AppDbContext.cs` for DB context and entity sets.
-
-If you want, I can add run/debug tasks, or expand any README with more details (env variables, CI, Dockerfile, sample requests).
